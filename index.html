@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sub Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">S</span>
+        <span class="brand-text">구독을 한눈에 관리해보세요</span>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link active" href="#">
+          <span class="nav-icon">●</span>
+          <span>구독 관리</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <section class="page-header">
+        <div>
+          <p class="eyebrow">Subscription Dashboard</p>
+          <h1>내 구독 관리</h1>
+        </div>
+        <button class="primary-button" id="seed-button">샘플 데이터</button>
+      </section>
+
+      <section class="summary-grid">
+        <article class="summary-card">
+          <div class="summary-card-head">
+            <span class="summary-label">월 합계</span>
+            <span class="summary-icon">₩</span>
+          </div>
+          <div class="summary-value" id="monthly-total">0</div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-card-head">
+            <span class="summary-label">연간 합계</span>
+            <span class="summary-icon">↻</span>
+          </div>
+          <div class="summary-value" id="yearly-total">0</div>
+        </article>
+
+        <article class="summary-card">
+          <div class="summary-card-head">
+            <span class="summary-label">이번 주 결제 예정</span>
+            <span class="summary-icon">◎</span>
+          </div>
+          <div class="summary-value" id="weekly-payment-total">0</div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <section class="panel list-panel">
+          <div class="panel-title">
+            <div>
+              <span class="panel-kicker">구독 카드 목록</span>
+              <h2>구독 목록</h2>
+            </div>
+          </div>
+          <div class="subscription-list" id="subscription-list"></div>
+        </section>
+
+        <section class="panel form-panel">
+          <div class="panel-title">
+            <div>
+              <span class="panel-kicker">새 구독 추가</span>
+              <h2>구독 추가</h2>
+            </div>
+          </div>
+
+          <form id="subscription-form" class="subscription-form">
+            <div class="form-group">
+              <label for="name">구독 이름</label>
+              <input type="text" id="name" name="name" required autocomplete="off" />
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="category">카테고리</label>
+                <input type="text" id="category" name="category" required autocomplete="off" />
+              </div>
+
+              <div class="form-group">
+                <label for="paymentMethod">결제 수단</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                  <option value="신한카드">신한카드</option>
+                  <option value="KB카드">KB카드</option>
+                  <option value="현대카드">현대카드</option>
+                  <option value="BC카드">BC카드</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="amount">월 금액</label>
+                <input type="number" id="amount" name="amount" min="1" required />
+              </div>
+
+              <div class="form-group">
+                <label for="cycle">결제 주기</label>
+                <select id="cycle" name="cycle" required>
+                  <option value="monthly">월 결제</option>
+                  <option value="yearly">연 결제</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="nextPaymentDate">다음 결제일</label>
+              <input type="date" id="nextPaymentDate" name="nextPaymentDate" required />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-button submit-button">추가하기</button>
+              <button type="reset" class="secondary-button">초기화</button>
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <section class="panel chart-panel">
+        <div class="panel-title">
+          <div>
+            <span class="panel-kicker">카테고리별 비중</span>
+            <h2>비중 표시</h2>
+          </div>
+        </div>
+        <div class="chart-area" id="category-chart"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/logic.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+</html>
